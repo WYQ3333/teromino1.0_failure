@@ -1,6 +1,10 @@
 #pragma once 
 #include<iostream>
 #include<Windows.h>
+
+
+#include<wingdi.h>    //solidrectangle所在的头文件
+
 using namespace std;
 
 #define BORDER 20  //边界、属性

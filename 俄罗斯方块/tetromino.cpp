@@ -1,5 +1,7 @@
 #include"tetromino.h"
 
+HDC hdc;
+
 teromino::teromino(teromino_type index){
 	switch (index)
 	{
@@ -61,5 +63,12 @@ teromino::teromino(teromino_type index){
 		break;
 	default:
 		break;
+	}
+}
+
+void teromino::display(){
+	for (int i = 0; i < 4; ++i){
+		Rectangle(hdc,block[i].X*BORDER, block[i].Y*BORDER, 
+			(block[i].X + 1)*BORDER, (block[i].Y + 1)*BORDER);
 	}
 }
