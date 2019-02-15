@@ -70,5 +70,30 @@ void teromino::display(){
 	for (int i = 0; i < 4; ++i){
 		Rectangle(hdc,block[i].X*BORDER, block[i].Y*BORDER, 
 			(block[i].X + 1)*BORDER, (block[i].Y + 1)*BORDER);
+		//Rectangle是一个函数，使用该函数画一个矩形，可以用当前的画笔画矩形轮廓，
+		//用当前画刷进行填充。
+		//函数原型：BOOL Rectangle(HDC hdc, int nLeftRect, int nTopRect, 
+		//			int nRightRect, int nBottomRect)；
+		/*hdc：设备环境句柄。
+			nLeftRect：指定矩形左上角的逻辑X坐标。
+			nTopRect：指定矩形左上角的逻辑Y坐标。
+			nRightRect：指定矩形右下角的逻辑X坐标。
+			nBottomRect：指定矩形右下角的逻辑Y坐标。
+			返回值：如果函数调用成功，返回值非零，否则返回值为0。
+			Windows NT：若想获得更多错误信息，请调用GetLastError函数。
+			备注：此函数不使用和改变当前位置。*/
+	}
+}
+
+void teromino::moveLeft(){  //向左移动
+	if (!left())
+	{
+		for (int i = 0; i < 4; i++)
+		{
+			clearrectangle(block[i].X*BORDER, block[i].Y*BORDER, (block[i].X + 1)*BORDER, (block[i].Y + 1)*BORDER);
+			block[i].X--;
+		}
+		center.X--;
+		display();
 	}
 }
